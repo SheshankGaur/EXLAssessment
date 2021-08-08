@@ -1,0 +1,15 @@
+package cucmberTestRunner;
+
+
+import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import cucumber.runtime.model.CucumberExamples;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		features="C://Users//Abhishek//eclipse-workspace//SheshankEXLAssessment//src//test//java//cucumberFeatures//GoogleNavigation.feature"
+		glue={""})
+public class GoogleNavigationTestRunner {
+
+}

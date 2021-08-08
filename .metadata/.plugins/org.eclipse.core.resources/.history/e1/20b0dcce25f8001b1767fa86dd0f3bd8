@@ -1,0 +1,18 @@
+#Author: sheshankgaur03@gmail.com
+#Feature: List of scenarios.VERIY PLACE CORDINATES AND VERIFY 2 ROUTES DISPLAYED FOR DESTINATION
+
+
+
+Feature: Verifying the driving directions between source i.e. Chico, California and destination i.e. San Francisco, California.
+ 
+  Scenario: Validte the Sanfrancisco Cordinates.
+    Given Launch Chrome Browser
+    And maximize the window
+    When Navigate to "https://www.google.com/maps/";
+    And search for San Francisco
+    Then Validate the San Francisco cordinates
+    
+   Scenario: Validate the driving directions between Chico, California and San Francisco, California
+ 		Given Enter the 
+ 
+ 

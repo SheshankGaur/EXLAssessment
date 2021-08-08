@@ -1,0 +1,18 @@
+package objectRepository;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class NavigationHomePage {
+	
+	public WebDriver driver;
+	
+	By searchbox =By.cssSelector("input#searchboxinput");
+	By searchbutton=By.cssSelector("button.searchbox-searchbutton");
+	By Directions=By.xpath("//div[@data-value='Directions']");
+	By sourcesearch=By.id("directions-searchbox-*");
+	By searchresults=By.id("section-directions-trip-*");
+	By searchtitle=By.id("section-directions-trip-title-*");
+	
+	
+}

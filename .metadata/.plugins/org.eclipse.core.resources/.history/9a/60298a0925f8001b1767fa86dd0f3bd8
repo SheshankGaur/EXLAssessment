@@ -1,0 +1,13 @@
+package cucmberTestRunner;
+
+
+import org.junit.runner.RunWith;
+
+import cucumber.api.CucumberOptions;
+import cucumber.runtime.model.CucumberExamples;
+
+@RunWith(Cucumber.class)
+@CucumberOptions()
+public class GoogleNavigationTestRunner {
+
+}

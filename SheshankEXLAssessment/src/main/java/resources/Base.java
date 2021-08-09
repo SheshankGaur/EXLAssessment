@@ -32,7 +32,7 @@ public class Base {
 			 driver=new InternetExplorerDriver();
 		}
 		
-		else if(browserName.equals("Chrome"))
+		else if(browserName.equals("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver", "C:\\Users\\Abhishek\\eclipse-workspace\\chromedriver.exe");
 			 driver=new ChromeDriver();
@@ -44,7 +44,7 @@ public class Base {
 			 driver=new FirefoxDriver();
 		}
 		
-		Thread.sleep(70000);
+		Thread.sleep(7000);
 		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

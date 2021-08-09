@@ -3,13 +3,16 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.PrintStream;
-import java.util.concurrent.TimeUnit;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.runner.RunWith;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -24,6 +27,8 @@ import resources.Base;
 public class GoogleNavigationStepDefinition extends Base{
 	
 	public WebDriver driver;
+	
+	public static Logger log=LogManager.getLogger(Base.class.getName());
 	
 		@Given("^Launch Chrome Browser and maximize the window$")
 	    public void launch_chrome_browser_and_maximize_the_window() throws Throwable {
@@ -99,6 +104,8 @@ public class GoogleNavigationStepDefinition extends Base{
 	    	System.setOut(output);
 	    	NavigationSearchPage page=new NavigationSearchPage(driver);
 	    	System.out.println(page.getSearchResults());
+	    	
+	    	driver.quit();
 	    }
 
 	}	

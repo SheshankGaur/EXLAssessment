@@ -1,6 +1,7 @@
 package objectRepository;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -43,9 +44,9 @@ public class NavigationSearchPage {
 		return driver.findElement(sourcesearch);
 	}
 	
-	public WebElement getSearchResults()
+	public int getSearchResults()
 	{
-		return driver.findElement(searchresults);
+		return driver.findElements(searchresults).size();
 	}
 	
 	

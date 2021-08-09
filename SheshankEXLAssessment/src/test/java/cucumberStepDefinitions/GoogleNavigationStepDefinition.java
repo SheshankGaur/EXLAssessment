@@ -79,13 +79,13 @@ public class GoogleNavigationStepDefinition extends Base{
 	        
 	    	NavigationSearchPage page=new NavigationSearchPage(driver);
 	    	
-	    	  if(page.getSearchResults()>2) {
+	    	  if(page.getSearchResults()>1) {
 	    		  
-	    		  System.out.println("Results displayed");
+	    		  System.out.println("more than one Results displayed");
 	    		  
 	    	  }
 	    	  else
-	    		  System.out.println("Results failed");
+	    		  System.out.println("less than one Results failed");
 	    }
 
 	   

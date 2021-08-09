@@ -6,7 +6,7 @@ import java.io.PrintStream;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.runner.RunWith;
-import org.openqa.selenium.Dimension;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

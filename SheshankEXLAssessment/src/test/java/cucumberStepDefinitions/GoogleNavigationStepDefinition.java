@@ -11,8 +11,7 @@ import org.junit.runner.RunWith;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-
-
+import org.openqa.selenium.WebElement;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -49,19 +48,19 @@ public class GoogleNavigationStepDefinition extends Base{
 	      
 	    @Then("^Validate the San Francisco cordinates$")
 	    public void validate_the_san_francisco_cordinates() throws Throwable {
-	    	String currurl=driver.getCurrentUrl();
-	    	//https://www.google.com/maps/place/San+Francisco,+CA,+USA/@38.8078181,-122.8623879,8z/data=!4m5!3m4!1s0x80859a6d00690021:0x4a501367f076adff!8m2!3d37.7749295!4d-122.4194155
-	     String lat=currurl.substring(58,68);
-	     String longitude=currurl.substring(70,81);
+	    String currenturl=driver.getCurrentUrl();
+	    	
+	    String actuallat=currenturl.substring(58,68);
+	    String actuallongitude=currenturl.substring(70,81);
 	     
-	     System.out.println(lat +" "+ longitude);
+	    System.out.println(actuallat +" "+ actuallongitude);
 	     
-	     String expectedlat="38.8078181";
+	    String expectedlat="38.8078181";
 	 	String expectedlongitude="-122.8623879";
 	     
-	    assertEquals(expectedlat, lat);
-	    assertEquals(expectedlongitude, longitude);
-	     
+	    assertEquals(expectedlat, actuallat);
+	    assertEquals(expectedlongitude, actuallongitude);
+	    
 	    }
 
 	    
@@ -84,26 +83,32 @@ public class GoogleNavigationStepDefinition extends Base{
 	        
 	    	NavigationSearchPage page=new NavigationSearchPage(driver);
 	    	
-	    	  if(page.getSearchResults()>1) {
-	    		  
-	    		  System.out.println("more than one Results displayed");
-	    		  
-	    	  }
-	    	  else
-	    		  System.out.println("less than one Results failed");
+	    	int searchresultsize=page.getSearchResults();
+	    	System.out.println(searchresultsize);
+	    	
+	    	if(searchresultsize>=2)
+	    	{
+	    		System.out.println("Search will displayed more than 2 results");
+	    	}
+	    	
+	    	else {
+	    		System.out.println("Less than 2 results displayed");
+	    	}
+	    
 	    }
-
-	   
-
-	    @And("^print the route title, distance in miles and travel time in txt file$")
+	    @And("^print the route title, distance in miles and travel time of 1st search result in txt file$")
 	    public void print_the_route_title_distance_in_miles_and_travel_time_in_file_called_routestxt() throws Throwable {
 	       
+	    	NavigationSearchPage page=new NavigationSearchPage(driver);
+	    	 String title=page.getdirectionTitle().getText();
+	    	 String timestamp=page.getdirectionTime().getText();
+	    	 String miles=page.getdirectionMiles().getText();
+	    
 	    	
 	    	PrintStream output=new PrintStream(new File("C:\\Users\\Abhishek\\eclipse-workspace\\SheshankEXLAssessment\\src\\test\\java\\Result.txt"));
 	    	//PrintStream console=System.out;
 	    	System.setOut(output);
-	    	NavigationSearchPage page=new NavigationSearchPage(driver);
-	    	System.out.println(page.getSearchResults());
+	    	System.out.println(title + " " + timestamp + " " + miles);
 	    	
 	    	driver.quit();
 	    }

@@ -1,5 +1,6 @@
 package objectRepository;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -17,13 +18,17 @@ public class Test {
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.google.com/maps/");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
 		
 		driver.findElement(By.id("searchboxinput")).sendKeys("San Francisco, CA" + Keys.ENTER);
-		driver.findElement(By.xpath("//button[@value='Directions']")).click();
-		driver.findElement(By.id("directions-searchbox-0")).sendKeys("Chico, CA" + Keys.ENTER);
+		driver.findElement(By.xpath("//div[@data-value='Directions']/button")).click();
+		driver.findElement(By.xpath("//div[@id='sb_ifc51']/input[@class='tactile-searchbox-input']")).sendKeys("Chico, CA" + Keys.ENTER);
+	
+		int resultcount=driver.findElements(By.xpath("//div[@class='section-layout']/div")).size();
 		
-		int result=driver.findElements(By.id("section-direction-trip-*")).size();
+		System.out.println(resultcount);
+		
+	/*	int result=driver.findElements(By.id("section-direction-trip-*")).size();
 		
 		System.out.println(result);
 		
@@ -32,4 +37,6 @@ public class Test {
 		
 	}
 
-
+*/
+}
+}
